@@ -10,34 +10,22 @@ import Foundation
 import SwiftUI
 import Foundation
 
-func solution() -> Int {
-    
-    let temp = readLine()!.split(separator: " ").map({Int($0)!})
-    let n = temp[0]
-    var k = temp[1]
-    
-    var coins = [Int]()
-    var result: Int = 0
-    
-    for _ in 0..<n{
-        coins.append(Int(readLine()!)!)
+let n = Int(readLine()!)!
+var dp = [Int](repeating: 0, count: n+1)
+
+for i in 2..<n+1 {
+    dp[i] = dp[i-1] + 1
+    if i % 3 == 0 {
+        dp[i] = min(dp[i], dp[i/3]+1)
     }
-    
-    coins = Array(coins.reversed())
-    
-    for value in coins{
-        if value <= k{
-            result += (k / value)
-            k = (k % value)
-        }
-        if k == 0{
-            break
-        }
+    if i % 2 == 0 {
+        dp[i] = min(dp[i], dp[i/2]+1)
     }
-    
-    return result
 }
 
-print(solution())
+print(dp[n])
+
+
+
 
 
