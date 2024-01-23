@@ -11,20 +11,18 @@ import SwiftUI
 import Foundation
 
 let n = Int(readLine()!)!
-var dp = [Int](repeating: 0, count: n+1)
+let array = readLine()!.split(separator: " ").map { Int($0)! }
+var cache = [Int](repeating: 1, count: n)
 
-for i in 2..<n+1 {
-    dp[i] = dp[i-1] + 1
-    if i % 3 == 0 {
-        dp[i] = min(dp[i], dp[i/3]+1)
-    }
-    if i % 2 == 0 {
-        dp[i] = min(dp[i], dp[i/2]+1)
+for i in 1..<n {
+    for j in 0..<i {
+        if array[i] > array[j] {
+            cache[i] = max(cache[i], cache[j] + 1)
+        }
     }
 }
 
-print(dp[n])
-
+print(cache.max()!)
 
 
 
