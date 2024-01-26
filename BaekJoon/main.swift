@@ -10,24 +10,28 @@ import Foundation
 import SwiftUI
 import Foundation
 
-let n = Int(String(readLine()!))!
-var arr:[[Int]] = [[]]
-var dp = Array(repeating: Array(repeating: 0, count: 501), count: 501)
-for _ in 1...n {
-    arr.append(readLine()!.split(separator: " ").map{Int(String($0))!})
+
+
+
+let n = Int(readLine()!)!
+var connect: [(Int, Int)] = []
+var cache = [Int](repeating: 1, count: n)
+for _ in 0..<n {
+    let input = readLine()!.split(separator: " ").map { Int($0)! }
+    let a = input[0], b = input[1]
+    connect.append((a, b))
 }
 
-dp[1][0] = arr[1][0]
-for i in stride(from: 2, through: n, by: 1){
-    for j in 0..<arr[i].count{
-        if j == 0{
-            dp[i][j] = dp[i - 1][j] + arr[i][j]
-        }else if j < arr[i].count - 1{
-            dp[i][j] = max(dp[i - 1][j] + arr[i][j], dp[i - 1][j - 1] + arr[i][j])
-        }else if j == arr[i].count - 1{
-            dp[i][j] = dp[i - 1][j - 1] + arr[i][j]
+connect = connect.sorted { $0.0 < $1.0 }
+
+let array = connect.map { $0.1 }
+
+for i in 1..<n {
+    for j in 0...i {
+        if array[i] > array[j] {
+            cache[i] = max(cache[i], cache[j] + 1)
         }
-        
     }
 }
-print(dp[n].max()!)
+
+print(n - cache.max()!)
