@@ -11,52 +11,18 @@ import SwiftUI
 import Foundation
 
 
-
-
 let n = Int(readLine()!)!
-var connect: [Int] = []
-
-var db = Array(repeating: 1, count: n+1)
-connect.append(0)
-
-for _ in 1...n {
-    connect.append(Int(readLine()!)!)
-    //복사 해주고
+var rgbPrice = Array(repeating:[0,0,0], count: n+1) //RGB => 012 순서
+var dp = Array(repeating: Array(repeating: 0, count: 3), count: n+1) //dp[집번호][색상]
+for i in 1..<n+1 {  // rgbPrice[집번호][012순서대로 가격]
+    rgbPrice[i] = readLine()!.split(separator: " ").map {Int(String($0))!}
 }
 
-db[1] = connect[1]
 
-
-if (n > 1) {
-    db[2] = connect[1] + connect[0]
+for i in 1..<n+1 {
+    dp[i][0] = min(dp[i-1][1], dp[i-1][2]) + rgbPrice[i][0]
+    dp[i][1] = min(dp[i-1][0], dp[i-1][2]) + rgbPrice[i][1]
+    dp[i][2] = min(dp[i-1][0], dp[i-1][1]) + rgbPrice[i][2]
 }
-if (n > 2) {
-    for i in 3 ..< n+1 {
-        db[i] = max(db[i-1], db[i-3] + connect[i-1] + connect[i], db[i-2] + connect[i])
-    }
-}
-print(db[n])
 
-
-
-
-//var cache = [Int](repeating: 1, count: n)
-//for _ in 0..<n {
-//    let input = readLine()!.split(separator: " ").map { Int($0)! }
-//    let a = input[0], b = input[1]
-//    connect.append((a, b))
-//}
-//
-//connect = connect.sorted { $0.0 < $1.0 }
-//
-//let array = connect.map { $0.1 }
-//
-//for i in 1..<n {
-//    for j in 0...i {
-//        if array[i] > array[j] {
-//            cache[i] = max(cache[i], cache[j] + 1)
-//        }
-//    }
-//}
-//
-//print(n - cache.max()!)
+print(dp[n].min()!)
