@@ -19,10 +19,10 @@ var cache = [[Int]](repeating: [Int](repeating: 0, count: n), count: m)
 
 for y in 1..<m {
     for x in 1..<n {
-        if str2[y] != str1[x] { //같은 위치의 값이 같은경우가 아닌거
-            cache[y][x] = max(cache[y - 1][x], cache[y][x - 1])//
-        } else {
-            cache[y][x] = cache[y - 1][x - 1] + 1
+        if str2[y] != str1[x] { //같은 위치의 값이 같은경우가 아닌경우에 이 소스블록을 따라감
+            cache[y][x] = max(cache[y - 1][x], cache[y][x - 1])// 이게 어떻게 되는지는 알고리즘을 그려봐야알듯,
+        } else {// 문자가 같은경우
+            cache[y][x] = cache[y - 1][x - 1] + 1//대각선에다가 + 1 을 해주면 됨
         }
     }
 }
