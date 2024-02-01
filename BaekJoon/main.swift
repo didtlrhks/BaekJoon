@@ -10,26 +10,21 @@ import Foundation
 import SwiftUI
 import Foundation
 
-var nm = readLine()!.split(separator: " ").map{ Int($0)! }
-let N = nm[0]
-let M = nm[1]
 
-var stack = [Int]()
+func split(n : Double) -> String {
 
-private func dfs() {
-    if stack.count == M {
-        print(stack.map{ String($0) }.joined(separator:" "))
-        return
-    }
+    if n == 0 {
+          return "-"
+      }
 
-    for i in 1...N {
-        if !stack.contains(i) {
-            stack.append(i)
-            dfs()
-            stack.removeLast()
-        }
 
-    }
+
+  let line = split(n: n - 1)
+  return line + String(repeating: " ", count: Int(pow(3, n - 1))) + line
+
 }
 
-dfs()
+
+while let input = readLine(), let n = Double(input) {
+  print(split(n: n))
+}
