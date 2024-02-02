@@ -18,6 +18,8 @@
 		8EFA880C2B67D59E006E003E /* 9251.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFA880B2B67D59E006E003E /* 9251.swift */; };
 		8EFA880E2B68D7C9006E003E /* 15649.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFA880D2B68D7C9006E003E /* 15649.swift */; };
 		8EFA88102B6A724F006E003E /* 15650.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFA880F2B6A724F006E003E /* 15650.swift */; };
+		8EFA88122B6B6EB2006E003E /* 4779.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFA88112B6B6EB2006E003E /* 4779.swift */; };
+		8EFA88142B6CEE04006E003E /* 14888.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFA88132B6CEE04006E003E /* 14888.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +49,8 @@
 		8EFA880B2B67D59E006E003E /* 9251.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 9251.swift; sourceTree = "<group>"; };
 		8EFA880D2B68D7C9006E003E /* 15649.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 15649.swift; sourceTree = "<group>"; };
 		8EFA880F2B6A724F006E003E /* 15650.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 15650.swift; sourceTree = "<group>"; };
+		8EFA88112B6B6EB2006E003E /* 4779.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 4779.swift; sourceTree = "<group>"; };
+		8EFA88132B6CEE04006E003E /* 14888.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 14888.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,8 @@
 				8EFA880B2B67D59E006E003E /* 9251.swift */,
 				8EFA880D2B68D7C9006E003E /* 15649.swift */,
 				8EFA880F2B6A724F006E003E /* 15650.swift */,
+				8EFA88112B6B6EB2006E003E /* 4779.swift */,
+				8EFA88132B6CEE04006E003E /* 14888.swift */,
 			);
 			path = BaekJoon;
 			sourceTree = "<group>";
@@ -154,8 +160,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EFA88122B6B6EB2006E003E /* 4779.swift in Sources */,
 				8E15C85F2B63F521001468C7 /* 1932.swift in Sources */,
 				8E15C8632B651BC9001468C7 /* 2156.swift in Sources */,
+				8EFA88142B6CEE04006E003E /* 14888.swift in Sources */,
 				8E15C8612B63F569001468C7 /* 2565.swift in Sources */,
 				8E15C7D12B60F106001468C7 /* 11053.swift in Sources */,
 				8EFA880C2B67D59E006E003E /* 9251.swift in Sources */,
