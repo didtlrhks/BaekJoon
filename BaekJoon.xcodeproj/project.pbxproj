@@ -20,6 +20,7 @@
 		8EFA88102B6A724F006E003E /* 15650.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFA880F2B6A724F006E003E /* 15650.swift */; };
 		8EFA88122B6B6EB2006E003E /* 4779.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFA88112B6B6EB2006E003E /* 4779.swift */; };
 		8EFA88142B6CEE04006E003E /* 14888.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFA88132B6CEE04006E003E /* 14888.swift */; };
+		8EFA88162B6E4BD8006E003E /* 2447.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFA88152B6E4BD8006E003E /* 2447.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,6 +52,7 @@
 		8EFA880F2B6A724F006E003E /* 15650.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 15650.swift; sourceTree = "<group>"; };
 		8EFA88112B6B6EB2006E003E /* 4779.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 4779.swift; sourceTree = "<group>"; };
 		8EFA88132B6CEE04006E003E /* 14888.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 14888.swift; sourceTree = "<group>"; };
+		8EFA88152B6E4BD8006E003E /* 2447.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 2447.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				8EFA880F2B6A724F006E003E /* 15650.swift */,
 				8EFA88112B6B6EB2006E003E /* 4779.swift */,
 				8EFA88132B6CEE04006E003E /* 14888.swift */,
+				8EFA88152B6E4BD8006E003E /* 2447.swift */,
 			);
 			path = BaekJoon;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 				8EFA880E2B68D7C9006E003E /* 15649.swift in Sources */,
 				8EFA88102B6A724F006E003E /* 15650.swift in Sources */,
 				8E15C8DD2B6642D6001468C7 /* 1149.swift in Sources */,
+				8EFA88162B6E4BD8006E003E /* 2447.swift in Sources */,
 				8E15C7952B5BE63A001468C7 /* main.swift in Sources */,
 				8E15C7A32B6009BD001468C7 /* 1346.swift in Sources */,
 				8E15C80C2B624439001468C7 /* 10844.swift in Sources */,
