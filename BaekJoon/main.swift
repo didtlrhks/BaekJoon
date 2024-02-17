@@ -4,19 +4,25 @@
 //
 //  Created by 양시관 on 1/19/24.
 import Foundation
-
-let input = readLine()!.split(separator: " ").map { Int($0)! }
-let n = input[0], k = input[1]
-var array = [0] + readLine()!.split(separator: " ").map { Int($0)! }
-
-for i in 1...n {
-    array[i] += array[i - 1]
+func solution() {
+    let t = Int(readLine()!)!
+    var testCase: [Int] = []
+    for _ in 0..<t {
+        testCase.append(Int(readLine()!)!)
+    }
+    
+    var result = [1,1,1,2,2]
+    
+    for i in 0..<95 {
+        result.append(result[i] + result[i+4])
+    }
+    
+    for num in testCase {
+        print(result[num - 1])
+    }
+    
 }
 
-var answer = Int.min
 
-for i in 0...n - k {
-    answer = max(answer, array[i + k] - array[i])
-}
+solution()
 
-print(answer)
