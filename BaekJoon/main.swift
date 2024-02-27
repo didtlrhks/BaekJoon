@@ -3,15 +3,29 @@
 //  BaekJoon
 //
 //  Created by 양시관 on 1/19/24.
-let input = readLine()!.split(separator: " ").map { Int($0)! }
-let n = input[0], m = input[1]
-var array = [0] + readLine()!.split(separator: " ").map { Int($0)! }
-for i in 1...n {
-    array[i] += array[i - 1]
+import Foundation
+let nm = readLine()!.split(separator: " ").map{Int(String($0))!}
+let n = nm[0]
+let m = nm[1]
+
+var arr = readLine()!.split(separator: " ").map{Int(String($0))!}
+var preFix = Array(repeating: 0, count: arr.count)
+var count = Array(repeating: 0, count: m)
+
+for i in 0..<arr.count{
+    if i == 0 {
+        preFix[i] = arr[i]
+    }else{
+        preFix[i] = (arr[i] + preFix[i - 1])
+    }
+    count[preFix[i] % m] += 1
 }
 
-for _ in 0..<m {
-    let input = readLine()!.split(separator: " ").map { Int($0)! }
-    let i = input[0], j = input[1]
-    print(array[j] - array[i - 1])
+//print(count)
+var result = 0
+for i in 0..<m{
+    result += (count[i] * (count[i] - 1)) / 2
 }
+
+print(result + count[0])
+
