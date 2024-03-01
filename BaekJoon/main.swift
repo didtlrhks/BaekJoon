@@ -4,28 +4,39 @@
 //
 //  Created by 양시관 on 1/19/24.
 import Foundation
-let nm = readLine()!.split(separator: " ").map{Int(String($0))!}
-let n = nm[0]
-let m = nm[1]
+import Foundation
 
-var arr = readLine()!.split(separator: " ").map{Int(String($0))!}
-var preFix = Array(repeating: 0, count: arr.count)
-var count = Array(repeating: 0, count: m)
-
-for i in 0..<arr.count{
-    if i == 0 {
-        preFix[i] = arr[i]
-    }else{
-        preFix[i] = (arr[i] + preFix[i - 1])
+let N = Int(readLine()!)!
+let list = [0,1,2,3,4,5,6,7,8,9]
+var count = 0
+var answer = -1
+var answers = [0]
+func search(_ selected : [Int]) {
+    if !selected.isEmpty {
+        answers.append(Int(selected.reduce("", {$0+String($1)}))!)
     }
-    count[preFix[i] % m] += 1
+    for num in list {
+        if selected.isEmpty {
+            if num != 0 {
+                count += 1
+                search([num])
+            }
+        }else {
+            if selected.last! > num {
+                count += 1
+                search(selected + [num] )
+            }
+        }
+    }
+    
+}
+search([])
+answers.sort()
+if answers.count <= N {
+    print(-1)
+}else {
+    print(answers[N])
 }
 
-//print(count)
-var result = 0
-for i in 0..<m{
-    result += (count[i] * (count[i] - 1)) / 2
-}
 
-print(result + count[0])
 
