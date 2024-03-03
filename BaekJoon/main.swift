@@ -5,38 +5,17 @@
 //  Created by 양시관 on 1/19/24.
 import Foundation
 import Foundation
+let n = Int(readLine()!)!
+let distance = readLine()!.split(separator: " ").map { Int($0)! }
+let price = readLine()!.split(separator: " ").map { Int($0)! }
+var answer = 0
+var minPrice = price[0]
 
-let N = Int(readLine()!)!
-let list = [0,1,2,3,4,5,6,7,8,9]
-var count = 0
-var answer = -1
-var answers = [0]
-func search(_ selected : [Int]) {
-    if !selected.isEmpty {
-        answers.append(Int(selected.reduce("", {$0+String($1)}))!)
+for i in 0..<n - 1 {
+    if minPrice > price[i] {
+        minPrice = price[i]
     }
-    for num in list {
-        if selected.isEmpty {
-            if num != 0 {
-                count += 1
-                search([num])
-            }
-        }else {
-            if selected.last! > num {
-                count += 1
-                search(selected + [num] )
-            }
-        }
-    }
-    
-}
-search([])
-answers.sort()
-if answers.count <= N {
-    print(-1)
-}else {
-    print(answers[N])
+    answer += minPrice * distance[i]
 }
 
-
-
+print(answer)
