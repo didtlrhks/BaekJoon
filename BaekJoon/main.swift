@@ -3,13 +3,31 @@
 ////  BaekJoon
 ////
 ////  Created by 양시관 on 1/19/24.
-//let n = Int(readLine()!)!
-//
-//func fibo(_ n: Int) -> Int {
-//    if n < 2 {
-//        return n
-//    }
-//    return fibo(n - 1) + fibo(n - 2)
-//}
-//
-//print(fibo(n))
+import Foundation
+import SwiftUI
+
+let N = Int(readLine()!)!
+var cnt = [0,0]
+var arr = [[Int]]()
+for _ in 0..<N {
+    arr.append(readLine()!.split(separator: " ").map { Int($0)! })
+}
+func sol(size: Int, y: Int, x: Int) {
+    let n = arr[y][x]
+    for i in y..<y+size {
+        for j in x..<x+size {
+            if arr[i][j] != n {
+                let new = size / 2
+                for ii in 0..<2 {
+                    for jj in 0..<2 {
+                        sol(size: new, y: y+ii*new, x: x+jj*new)
+                    }
+                }
+                return
+            }
+        }
+    }
+    cnt[n] += 1
+}
+sol(size: N, y: 0, x: 0)
+cnt.forEach { print($0) }
