@@ -4,30 +4,40 @@
 ////
 ////  Created by 양시관 on 1/19/24.
 import Foundation
-import SwiftUI
 
-let N = Int(readLine()!)!
-var cnt = [0,0]
-var arr = [[Int]]()
-for _ in 0..<N {
-    arr.append(readLine()!.split(separator: " ").map { Int($0)! })
+let n = Int(readLine()!)!
+var board = [[Int]]()
+for _ in 0..<n {
+    board.append(readLine()!.map { Int(String($0))! })
 }
-func sol(size: Int, y: Int, x: Int) {
-    let n = arr[y][x]
-    for i in y..<y+size {
-        for j in x..<x+size {
-            if arr[i][j] != n {
-                let new = size / 2
-                for ii in 0..<2 {
-                    for jj in 0..<2 {
-                        sol(size: new, y: y+ii*new, x: x+jj*new)
-                    }
-                }
-                return
+
+var result = ""
+
+func check(_ x: Int, _ y: Int, _ width: Int) -> Bool {
+    for i in x..<x+width {
+        for j in y..<y+width {
+            if board[x][y] != board[i][j] {
+                return false
             }
         }
     }
-    cnt[n] += 1
+    return true
 }
-sol(size: N, y: 0, x: 0)
-cnt.forEach { print($0) }
+
+func quadTree(_ x: Int, _ y: Int, _ n: Int) {
+    if check(x, y, n) {
+        result += "\(board[x][y])"
+        return
+    }
+    let w = n / 2
+    result += "("
+    for i in 0..<2 {
+        for j in 0..<2 {
+            quadTree(x + i * w, y + j * w, w)
+        }
+    }
+    result += ")"
+}
+
+quadTree(0, 0, n)
+print(result)
